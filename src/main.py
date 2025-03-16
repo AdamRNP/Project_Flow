@@ -5,23 +5,43 @@ Created on Sun Mar 16 15:09:00 2025
 @author: adamp
 """
 
+"""
+Main entry point for the Project_Flow application.
+"""
 import sys
+import os
 from PyQt5.QtWidgets import QApplication
-from app.main_window import MainWindow
+from PyQt5.QtCore import QSettings
+
+from src.ui.main_window import MainWindow
+from src.utils.config import Config
+from src.utils.logger import setup_logger
 
 def main():
-    """Application entry point."""
-    # Create the application
+    """Main application entry point."""
+    # Set up logging
+    setup_logger()
+    
+    # Load configuration
+    config = Config()
+    config.load()
+    
+    # Create application
     app = QApplication(sys.argv)
-    app.setApplicationName("OpenFOAM CFD Interface")
-    app.setOrganizationName("OpenFOAM-GUI")
+    app.setApplicationName("Project_Flow")
+    app.setOrganizationName("Project_Flow")
+    app.setOrganizationDomain("projectflow.org")
     
-    # Create and show the main window
-    window = MainWindow()
-    window.show()
+    # Set up QSettings
+    settings = QSettings()
     
-    # Start the event loop
+    # Create and show main window
+    main_window = MainWindow(config, settings)
+    main_window.show()
+    
+    # Run application event loop
     sys.exit(app.exec_())
 
 if __name__ == "__main__":
     main()
+

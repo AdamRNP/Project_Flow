@@ -1,0 +1,57 @@
+# Logging configuration for Project_Flow
+version: 1
+disable_existing_loggers: false
+
+formatters:
+  standard:
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    datefmt: '%Y-%m-%d %H:%M:%S'
+  detailed:
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(pathname)s:%(lineno)d - %(message)s'
+    datefmt: '%Y-%m-%d %H:%M:%S'
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: standard
+    stream: ext://sys.stdout
+
+  file:
+    class: logging.handlers.RotatingFileHandler
+    level: DEBUG
+    formatter: detailed
+    filename: ${HOME}/.project_flow/logs/project_flow.log
+    maxBytes: 10485760  # 10MB
+    backupCount: 3
+    encoding: utf8
+
+  error_file:
+    class: logging.handlers.RotatingFileHandler
+    level: ERROR
+    formatter: detailed
+    filename: ${HOME}/.project_flow/logs/error.log
+    maxBytes: 10485760  # 10MB
+    backupCount: 3
+    encoding: utf8
+
+loggers:
+  project_flow:
+    level: DEBUG
+    handlers: [console, file, error_file]
+    propagate: false
+  
+  project_flow.ui:
+    level: INFO
+    handlers: [console, file]
+    propagate: false
+  
+  project_flow.openfoam:
+    level: DEBUG
+    handlers: [console, file, error_file]
+    propagate: false
+
+root:
+  level: WARNING
+  handlers: [console]
+  propagate: false
