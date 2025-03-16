@@ -1,0 +1,30 @@
+EOF
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+*.egg-info/
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Build directories
+build/
+dist/
+
+# Test cache
+.pytest_cache/
+.coverage
+
+# OpenFOAM case files
+processor*/
+postProcessing/
+*.foam
+EOF

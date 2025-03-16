@@ -1,0 +1,25 @@
+[metadata]
+name = openfoam-studio
+version = 0.1.0
+description = Advanced user interface for OpenFOAM CFD simulations
+author = Development Team
+
+[options]
+packages = find:
+package_dir =
+    = src
+python_requires = >=3.9
+install_requires =
+    PyQt5>=5.15.0
+    numpy>=1.20.0
+    matplotlib>=3.4.0
+    vtk>=9.0.0
+    pyyaml>=5.4.0
+    h5py>=3.2.0
+
+[options.packages.find]
+where = src
+
+[flake8]
+max-line-length = 100
+exclude = .git,__pycache__,build,dist,venv

@@ -1,0 +1,6 @@
+{
+    "use_wsl": true,
+    "wsl_distro": "",
+    "openfoam_version": "12",
+    "openfoam_bashrc": "/opt/openfoam12/etc/bashrc"
+}

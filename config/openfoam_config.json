@@ -1,0 +1,6 @@
+﻿{
+    "openfoam_path": "C:\\Program Files\\blueCFD-Core-2017\\OpenFOAM-5.x",
+    "openfoam_version": "5.x",
+    "solver_path": "C:\\Program Files\\blueCFD-Core-2017\\OpenFOAM-5.x\\platforms\\mingw_w64GccDPInt32Opt\\bin",
+    "paraview_path": "C:\\Program Files\\ParaView\\bin\\paraview.exe"
+}
